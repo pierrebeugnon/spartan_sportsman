@@ -1,0 +1,900 @@
+body {
+    margin: 0;
+    padding: 0;
+    /*background-color: black;*/
+    font-family: 'Raleway', sans-serif;
+}
+/************* Commun Style ********************/
+
+h1, h2, h3 {
+  font-family: 'Nunito', sans-serif;  
+  color: #057A5F;
+  margin-top: 0;
+}
+
+h1{
+  font-size: 30px;
+  text-align: center;
+  color: white;
+}
+
+a{
+  text-decoration: none;
+}
+
+p{
+  font-size: 16px;
+  color:black;
+}
+
+.corps{
+    max-width: 1200px;
+    display: block;
+    margin: 100px auto;
+}
+
+hr{
+  opacity: 0.4;
+}
+
+
+.fond_ecran{
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/************** Button **********************/
+
+.tag_sport{
+  button {
+    background-color: #057A5F; /* Green */
+    border: 2px solid rgb(255, 255, 255, 0);
+    color: white;
+    padding: 9px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  button:hover{
+    background-color: white;
+    border: 2px solid #057A5F;
+    color : #057A5F;
+  }
+}
+
+/*************** Flex ************************/
+
+.flex_wrap{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.flex_row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex_row_center{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex_row_between{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex_row_between_partenaires {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex_row_around{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/*************** Hero ************************/
+
+.hero{
+    height: 700px;
+    width: 100%;
+}
+
+.hero_article{
+  height: 350px;
+  width: 100%;
+}
+
+.txt_hero{
+  position: absolute;
+  width: 46%;
+  right: 100px;
+  margin-top: 8em;
+  display: none;
+}
+
+.txt_hero p{
+  font-size: 20px;
+}
+
+/***************Header *************************/
+header{
+    padding: 2em;
+}
+
+header img{
+    width: 150px;
+}
+
+header nav ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+  padding: 5px 1px;
+  border-radius: 2px;
+  margin: 0 1em;
+  list-style: none;
+  position: relative;
+  &:hover{
+    >ul{
+      display: block;
+      >:first-child{
+        margin-top: 10px;
+      }
+    }
+  }
+  > ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    > li {
+      margin: 0;
+    }
+  }
+}
+
+header nav ul li:hover{
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+header nav ul {
+    padding: 0;
+}
+
+/*************** Toggle Menu ********************/
+.burger_menu{
+    display: none;
+}
+
+.menu-toggle .burger-breads span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: white;
+    z-index: 1;
+  }
+  .menu-close .burger-breads span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #ffffff;
+    z-index: 1;
+    transform:rotate(45deg) translate(-2px, -1px);
+    background: white;
+  }
+  .menu-close .burger-breads span:nth-child(2){
+    transform: rotate(135deg) translate(-6px, 9px);
+  }
+  .menu-close .burger-breads span:nth-child(3){
+    opacity: 0;
+  }
+  /*Style menu*/
+  .main-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: visible;
+    transition: left 0.3s ease, box-shadow 0.3s ease;
+    z-index: 999;
+  }
+  .main-menu ul {
+    margin: 0;
+    padding: 2.5em 0 0;
+    min-height: 100%;
+    width: 200%;
+    background: black;
+  }
+  .main-menu a{
+    display: block;
+    padding: .75em 15px;
+    /* line-height: 1em; */
+    font-size: 2em;
+    font-weight: lighter;
+    color: #ffff;
+    text-decoration: none;
+  }
+  .main-menu .menu-close{
+    position: absolute;
+    margin-top: 1em;
+    right: 0;
+  }
+  /*Hiding Menu*/
+  .main-menu{
+    display: none;
+    right: -200px;
+  }
+
+  .main-menu:target{
+    display: block;
+    right: 0;
+    outline: none;
+    box-shadow: 3px 0 12px rgba(0, 0, 0, .25);
+}
+.main-menu:target .menu-close{
+    z-index: 1001;
+    padding-bottom: 1px;
+}
+.main-menu:target ul{
+    position: relative;
+    z-index: 1000;
+}
+.main-menu:target + .backdrop{
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    cursor: default;
+}
+@supports (position: fixed){
+    .main-menu,
+    .main-menu:target + .backdrop{
+        position: fixed;
+    }
+}
+
+/************* Mediaqueries commun *************/
+
+@media only screen and (max-width: 700px) {
+
+  .nav_desktop{
+    display: none;
+  }
+
+  .burger_menu{
+    display: initial;
+  }
+}
+
+.partie_gauche{
+  width: 90%;
+}
+
+
+.partie_droite{
+  p{
+    margin: 5px 0;
+  }
+
+  h3{
+    border-bottom: 2px solid;
+    padding: 10px 0;
+  }
+
+
+  .profil {
+  
+  .contenue_mobile{
+    display: none;
+  }  
+
+  article{
+    max-width: 500px;
+    width: 74%;
+    margin: 3em auto;
+
+    h2{
+      margin-top: 1em;
+    }
+
+    img{
+      width: 100%;
+      display: block;
+      margin: auto;
+    }
+  }
+
+  }
+
+  
+/*********** CATEGORIES ************/
+.categories{
+  p{
+    margin: 7px 0;
+  }
+}
+
+/*********** INSTAGRAM ************/
+
+.instagram{
+  .picture img{
+    width: 26%;
+    overflow: hidden;
+    margin: 5px auto;
+  }
+}
+
+/*********** PARTENAIRES ************/
+.partenaires{
+  div {
+    margin: 5px 0;
+    img{
+      width: 20%;
+      margin: 0;
+      margin: 0 11% 0 0;
+    }
+
+    h4{
+        margin: 4px 0;
+    }
+
+    p{
+      font-size: 13px;
+      margin: 1px 0;
+    }
+  }
+} 
+
+.newsletters{
+
+  .input_news{
+    margin: 12px 0;
+  }
+
+  input{
+    padding: 8px 8px;        
+    margin-right: 5px;
+    width: 100%;
+  }
+  button {
+    background-color:#057A5F;
+    border: 2px solid #ffffff;
+    color: white;
+    padding: 8px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    width: 34%;
+    font-weight: bold;
+    margin: auto;
+  }
+  
+  button:hover{
+    background-color: black;
+    border: 2px solid white;
+    color : white
+  }
+}
+
+  }
+
+
+@media only screen and (max-width: 1200px) {
+  .corps{
+    margin: 0px 16px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .petit_article{
+    h3{
+      font-size: 16px;
+    }
+
+    p{
+      font-size: 12px;
+    }
+  }
+
+  .partie_gauche {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .partie_droite {
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+
+  .corps .flex_row{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .partie_droite .profil article{
+    max-width: max-content;
+    width: 100%;
+    margin: 30px 0;    
+  }
+
+  .partie_droite .profil article img{
+    margin-right: 2em;
+    width: 27%;
+    min-width: 195px;
+  }
+
+  h2{
+    margin: 5px 0;
+  }
+
+  .partie_droite .profil article img{
+    margin: initial;
+  }
+
+  .profil .contenue_desktop{
+    display: none;
+  }
+
+  .partie_droite .profil .contenue_mobile{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .partie_droite .profil .contenue_mobile img{
+    margin: 0 10px;
+  }
+
+  .partie_droite .profil article .partenaires img{
+    width: 84px;
+    margin: initial;
+  }
+
+  .partie_droite .profil .conteneur_partenaires{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .partie_droite .profil .flex_row_between_partenaires{
+    justify-content: normal;
+    width: 300px;
+  }
+
+  .partie_droite .profil .logo_partenaire{
+    width: 15%;
+    min-width: inherit;
+    margin-right: 30px;
+  }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+  .nav_desktop{
+    display: none;
+  }
+
+  .burger_menu{
+    display: initial;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+
+  .petit_article h3{
+    font-size: 14px;
+  }
+
+  .profil .contenue_desktop{
+    display: initial;
+  }
+
+  .partie_droite .profil article .picture_me{
+    margin: auto;
+  }
+
+  .partie_droite .profil .contenue_mobile{
+    display: none;
+  }
+
+  .tag {
+    justify-content: space-around;
+  }
+  .tag_sport .tag a{
+    margin: 10px 0;
+  }
+
+
+}
+
+/************* Home *****************************/
+
+.home{
+    .background_hero{
+      background: url("../img/wallpaper.png");      
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .tag_sport {
+
+      margin: 50px 0;
+
+      .tag {
+        display: flex;
+        flex-wrap: wrap;
+
+        >:first-child{
+          margin-left: 0;
+        }
+        a{
+          margin: 0 15px;
+        }
+
+      }
+    }
+
+    /*********** Partie gauche **********************/
+
+    .partie_gauche{
+      width: 90%;
+    }
+
+    .article{
+      width: 100%;
+      margin: 30px 0;
+    }
+
+    .petit_article{
+      width: 31%;
+    }
+
+    .titre{
+      color: #057A5F;
+      padding: 10px 0;
+      border-bottom: 2px solid;
+    }
+
+
+
+    .article_img{
+      width: 100%;
+      img{
+        width: 100%;
+      }
+    }
+
+    .txt_article{
+      h2{
+        margin-top: 0;
+      }
+
+      .date_article{
+        font-weight: bold;
+        margin-bottom: 0;
+        color:rgb(141, 141, 141);
+      }
+    }
+
+  /**************** PUB *******************************/
+
+  .article .pub {
+    img{
+      width: 100%;
+    }
+  }
+  /******************* PARTIE DROITE ******************/
+
+  .partie_droite{
+    p{
+      margin: 5px 0;
+    }
+
+    h3{
+      border-bottom: 2px solid;
+      padding: 10px 0;
+    }
+
+  
+    .profil {
+    
+    .contenue_mobile{
+      display: none;
+    }  
+
+    article{
+      max-width: 500px;
+      width: 74%;
+      margin: 3em auto;
+
+      h2{
+        margin-top: 1em;
+      }
+
+      img{
+        width: 100%;
+        display: block;
+        margin: auto;
+      }
+    }
+
+  }
+/*********** CATEGORIES ************/
+    .categories{
+      p{
+        margin: 7px 0;
+      }
+    }
+
+/*********** INSTAGRAM ************/
+
+    .instagram{
+      .picture img{
+        width: 26%;
+        overflow: hidden;
+        margin: 5px auto;
+      }
+    }
+
+/*********** PARTENAIRES ************/
+    .partenaires{
+      div {
+        margin: 5px 0;
+        img{
+          width: 20%;
+          margin: 0;
+          margin: 0 11% 0 0;
+        }
+
+        h4{
+            margin: 4px 0;
+        }
+
+        p{
+          font-size: 13px;
+          margin: 1px 0;
+        }
+      }
+    } 
+
+    .newsletters{
+
+      .input_news{
+        margin: 12px 0;
+      }
+
+      input{
+        padding: 8px 8px;        
+        margin-right: 5px;
+        width: 100%;
+      }
+      button {
+        background-color:#057A5F;
+        border: 2px solid #ffffff;
+        color: white;
+        padding: 8px 8px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        width: 34%;
+        font-weight: bold;
+        margin: auto;
+      }
+      
+      button:hover{
+        background-color: black;
+        border: 2px solid white;
+        color : white
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .corps{
+      margin: 0px 16px;
+    }
+  }
+
+  @media only screen and (max-width: 850px) {
+    .petit_article{
+      h3{
+        font-size: 16px;
+      }
+
+      p{
+        font-size: 12px;
+      }
+    }
+
+    .partie_gauche {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 780px) {
+    .partie_droite {
+      width: 100%;
+      display: block;
+      margin: auto;
+    }
+
+    .corps .flex_row{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .partie_droite .profil article{
+      max-width: max-content;
+      width: 100%;
+      margin: 30px 0;    
+    }
+
+    .partie_droite .profil article img{
+      margin-right: 2em;
+      width: 27%;
+      min-width: 195px;
+    }
+
+    h2{
+      margin: 5px 0;
+    }
+
+    .partie_droite .profil article img{
+      margin: initial;
+    }
+
+    .profil .contenue_desktop{
+      display: none;
+    }
+
+    .partie_droite .profil .contenue_mobile{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .partie_droite .profil .contenue_mobile img{
+      margin: 0 10px;
+    }
+
+    .partie_droite .profil article .partenaires img{
+      width: 84px;
+      margin: initial;
+    }
+
+    .partie_droite .profil .conteneur_partenaires{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .partie_droite .profil .flex_row_between_partenaires{
+      justify-content: normal;
+      width: 300px;
+    }
+
+    .partie_droite .profil .logo_partenaire{
+      width: 15%;
+      min-width: inherit;
+      margin-right: 30px;
+    }
+
+  }
+
+  @media only screen and (max-width: 700px) {
+
+    .nav_desktop{
+      display: none;
+    }
+
+    .burger_menu{
+      display: initial;
+    }
+  }
+
+  @media only screen and (max-width: 530px) {
+
+    .petit_article h3{
+      font-size: 14px;
+    }
+
+    .profil .contenue_desktop{
+      display: initial;
+    }
+
+    .partie_droite .profil .contenue_mobile{
+      display: none;
+    }
+
+    .tag {
+      justify-content: space-around;
+    }
+    .tag_sport .tag a{
+      margin: 10px 0;
+    }
+
+
+  }
+}
+
+/*************** Page Article ******************************/
+.article{
+
+
+
+  .background_hero{
+    background: url("../img/girondin_bordeaux.png");      
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  h1{
+    font-size: 30px;
+    text-align: left;
+    color: black;
+    margin-top: 2em;
+  }
+
+  h2 {
+    margin: 15px 0;
+    color: black;
+  }
+
+  .texte_intro{
+    color : grey
+  }
+
+  .legende_img {
+    margin: 50px 0;
+    img{
+      margin: 16px 0;
+      width: 100%;
+    }
+
+    p{
+      color : grey;
+      font-style: italic;
+      margin: 0;
+    }
+  }
+
+  .img_article{
+    img{
+      width: 30%;
+      margin-right: 1em;
+    }
+  }
+
+}
